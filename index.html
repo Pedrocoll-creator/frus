@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pago</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+       
+        body {
+	margin: 0;
+	background-color: white;
+}
+.card-header{
+  background: #c9ddff;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-10 offset-md-1">
+                
+                <div class="card card-outline-secondary">
+                    <div class="card-header">
+                        <h3 class="mb-0">Ejemplo de Formulario de Pago</h3>
+                    </div>
+                    <div class="card-body">
+                       
+                        <div id="error-msg" class="alert alert-danger d-none">Faltan algunos campos por completar</div>
+                        <form id="payment-form" method="post" action="#">
+                            <div class="row mt-4">
+                                <div class="col-sm-5 pb-3">
+                                    <label for="cardNumber">Número de Tarjeta</label>
+                                    <input class="form-control" id="cardNumber" placeholder="XXXXXXXXXXXXXXXX" type="text">
+                                </div>
+                                <div class="col-sm-3 pb-3">
+                                    <label for="cvc">CVC</label>
+                                    <input class="form-control" id="cvc" placeholder="0000" type="text">
+                                </div>
+                                <div class="col-sm-4 pb-3">
+                                    <label for="amount">Monto</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                        </div>
+                                        <input class="form-control" id="amount" placeholder="Monto" type="number">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 pb-3">
+                                    <label for="firstName">Nombre</label>
+                                    <input class="form-control" id="firstName" type="text">
+                                </div>
+                                <div class="col-sm-6 pb-3">
+                                    <label for="lastName">Apellido</label>
+                                    <input class="form-control" id="lastName" type="text">
+                                </div>
+                                <div class="col-sm-6 pb-3">
+                                    <label for="city">Ciudad</label>
+                                    <input class="form-control" id="city" type="text">
+                                </div>
+                                <div class="col-sm-3 pb-3">
+                                    <label for="state">Estado</label>
+                                    <select class="form-control custom-select" id="state">
+                                        <option value="">Selecciona un estado</option>
+                                        <option value="AL">Alabama</option>
+                                        <option value="AK">Alaska</option>
+                                        
+                                    </select>
+                                </div>
+                                <div class="col-sm-3 pb-3">
+                                    <label for="postalCode">Código Postal</label>
+                                    <input class="form-control" id="postalCode" type="text">
+                                </div>
+                                <div class="col-md-6 pb-3">
+                                    <p>Aceptamos:</p>
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn btn-secondary">
+                                            <input autocomplete="off" name="cardType" type="radio">
+                                            <i class="fab fa-cc-mastercard"></i>
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input autocomplete="off" name="cardType" type="radio">
+                                            <i class="fab fa-cc-visa"></i>
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input autocomplete="off" name="cardType" type="radio">
+                                            <i class="fab fa-cc-diners-club"></i>
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input autocomplete="off" name="cardType" type="radio">
+                                            <i class="fab fa-cc-amex"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 pb-3">
+                                    <label for="message">Mensaje</label>
+                                    <textarea class="form-control" id="message" rows="3"></textarea>
+                                    <small class="text-muted">Añade cualquier nota aquí.</small>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="float-right">
+                            <button class="btn btn-secondary" type="reset">Cancelar</button>
+                            <button id="sendForm" class="btn btn-primary" type="button">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        window.onload = function() {
+            const dialog = document.querySelector('#error-msg');
+            const formButton = document.querySelector('#sendForm');
+            const fields = document.querySelectorAll('input, textarea, select');
+            dialog.classList.add('d-none');
+            formButton.addEventListener('click', function(e) {
+                let allFieldsFilled = true;
+                fields.forEach(function(field) {
+                    if (!field.value) {
+                        allFieldsFilled = false;
+                        field.style.backgroundColor = '#f8d7da';
+                    } else {
+                        field.style.backgroundColor = '';
+                    }
+                });
+                if (!allFieldsFilled) {
+                    dialog.classList.remove('d-none');
+                } else {
+                    dialog.classList.add('d-none');
+                   
+                }
+            });
+        }
+    </script>
+
+  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js
+::contentReference[oaicite:0]{index=0}
+ 
